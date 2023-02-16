@@ -1,5 +1,5 @@
 export const appConfig: any = {
-  HOST: "http://localhost:8000",
+  HOST: process.env.SERVER_URL,
   get API_URL() {
     return this.HOST + "/api";
   },

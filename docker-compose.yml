@@ -1,0 +1,15 @@
+version: "3.4"
+
+services:
+  nginx-react:
+    image: ${DOCKER_USER}/nginx-react:latest
+    container_name: nginx-react
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:80
+    restart: always
+    volumes:
+      - ./.nginx/:/etc/nginx/conf.d/:ro
