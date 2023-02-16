@@ -1,5 +1,5 @@
 export const appConfig: any = {
-  HOST: process.env.SERVER_URL,
+  HOST: `${process.env.REACT_APP_SERVER_URL}`,
   get API_URL() {
     return this.HOST + "/api";
   },

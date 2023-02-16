@@ -48,7 +48,7 @@ jobs:
         with:
           push: true
           file: Dockerfile
-          tags: ${{ secrets.DOCKER_USER }}/nginx-react:latest
+          tags: ${{ secrets.DOCKER_USER }}/ui:latest
 
   deploy:
     environment: production
@@ -68,7 +68,7 @@ jobs:
           script: |
             export HOST="${{secrets.HOST }}"
             export PORT="${{secrets.PORT }}"
-            export SERVER_URL="${{secrets.SERVER_URL }}"
+            export REACT_APP_SERVER_URL="${{secrets.REACT_APP_SERVER_URL }}"
             export DOCKER_USER="${{secrets.DOCKER_USER }}"
 
             # login Docker Hub

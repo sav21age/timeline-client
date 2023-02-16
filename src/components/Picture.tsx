@@ -12,7 +12,6 @@ type Props = {
 
 const Picture = (props: Props) => {
   // const fallBackSrc = `${process.env.PUBLIC_URL}/media/svg/none.svg`;
-  console.log(props.pathFallback)
   return (
     <img
       src={`${props.path}`.replace(
