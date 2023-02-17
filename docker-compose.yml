@@ -13,5 +13,6 @@ services:
     restart: always
     environment:
       - REACT_APP_SERVER_URL=${REACT_APP_SERVER_URL}
+      - PUBLIC_URL=${PUBLIC_URL}
     volumes:
       - ./.nginx/:/etc/nginx/conf.d/:ro

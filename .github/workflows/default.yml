@@ -49,6 +49,12 @@ jobs:
           push: true
           file: Dockerfile
           tags: ${{ secrets.DOCKER_USER }}/ui:latest
+          build-args: |
+            REACT_APP_SERVER_URL
+            PUBLIC_URL
+        env:
+          REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
+          PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
 
   deploy:
     environment: production
@@ -66,10 +72,11 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            export HOST="${{secrets.HOST }}"
-            export PORT="${{secrets.PORT }}"
-            export REACT_APP_SERVER_URL="${{secrets.REACT_APP_SERVER_URL }}"
-            export DOCKER_USER="${{secrets.DOCKER_USER }}"
+            export HOST="${{ secrets.HOST }}"
+            export PORT="${{ secrets.PORT }}"
+            export REACT_APP_SERVER_URL="${{ secrets.REACT_APP_SERVER_URL }}"
+            export PUBLIC_URL="${{ secrets.PUBLIC_URL }}"
+            export DOCKER_USER="${{ secrets.DOCKER_USER }}"
 
             # login Docker Hub
             # docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }}
